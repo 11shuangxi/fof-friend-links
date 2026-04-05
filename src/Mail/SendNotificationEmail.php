@@ -86,6 +86,8 @@ class SendNotificationEmail
         $username = $user ? $user->username : 'Guest';
         $userEmail = $user ? $user->email : 'Unknown';
 
+        $baseUrl = app()->bound('flarum.config') ? app('flarum.config')['url'] : app(\Flarum\Foundation\Config::class)->url();
+
         $vars = [
             '{$username}'  => $username,
             '{$userEmail}' => $userEmail,
@@ -93,7 +95,7 @@ class SendNotificationEmail
             '{$siteUrl}'   => $link->site_url,
             '{$logoUrl}'   => $link->logo_url,
             '{$reason}'    => $link->reject_reason ?: '',
-            '{$baseUrl}'   => app('flarum.config')['url'],
+            '{$baseUrl}'   => $baseUrl,
         ];
 
         return str_replace(array_keys($vars), array_values($vars), $template);
