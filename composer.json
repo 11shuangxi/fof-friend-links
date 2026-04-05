@@ -1,0 +1,30 @@
+{
+    "name": "fof/friend-links",
+    "description": "A complete Flarum friend links extension.",
+    "type": "flarum-extension",
+    "license": "MIT",
+    "require": {
+        "flarum/core": "^1.8.0"
+    },
+    "authors": [
+        {
+            "name": "TraeAI"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Fof\\FriendLinks\\": "src/"
+        }
+    },
+    "extra": {
+        "flarum-extension": {
+            "title": "Friend Links",
+            "category": "feature",
+            "icon": {
+                "name": "fas fa-link",
+                "backgroundColor": "#e74c3c",
+                "color": "#fff"
+            }
+        }
+    }
+}

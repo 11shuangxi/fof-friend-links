@@ -1,0 +1,201 @@
+.FriendLinksFooter {
+  margin-top: 20px;
+  padding: 0 0 20px 0;
+
+  .container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .FriendLinksFooter-inner {
+    background: var(--control-bg);
+    border-radius: 8px;
+    padding: 15px 20px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  }
+
+  .FriendLinksFooter-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+
+    h3 {
+      margin: 0;
+      font-size: 14px;
+      font-weight: bold;
+      color: var(--heading-color);
+      display: flex;
+      align-items: center;
+      padding-left: 0;
+
+      i {
+        display: none;
+      }
+    }
+
+    .FriendLinksFooter-applyBtn {
+      font-size: 13px;
+      padding: 0 12px; // Give some hit area to match more-item
+      color: var(--text-color);
+      font-weight: 500;
+      background: transparent !important;
+      
+      &:hover {
+        color: var(--primary-color);
+        text-decoration: none;
+      }
+    }
+  }
+
+  .FriendLinksFooter-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px 15px;
+    
+    li {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+
+      &:before {
+        content: '•';
+        color: var(--muted-color);
+        margin-right: 6px;
+        font-size: 12px;
+      }
+
+      a {
+        display: inline-block;
+        color: var(--text-color);
+        font-size: 13px;
+        transition: color 0.2s ease;
+        text-decoration: none;
+
+        &:hover {
+          color: var(--primary-color);
+          text-decoration: none;
+        }
+
+        &.FriendLinksFooter-more {
+          color: var(--muted-color);
+          font-weight: 500;
+          transition: all 0.2s ease;
+          
+          &:hover {
+            color: var(--primary-color);
+          }
+        }
+      }
+    }
+  }
+}
+
+.FriendLinksPage {
+  padding: 40px 0;
+  
+  .FriendLinksPage-header {
+    text-align: center;
+    margin-bottom: 40px;
+    
+    h2 {
+      font-size: 28px;
+      font-weight: 600;
+      color: @heading-color;
+      margin-bottom: 10px;
+    }
+    
+    p {
+      color: @muted-color;
+      font-size: 16px;
+    }
+  }
+
+  .FriendLinksPage-loading {
+    text-align: center;
+    padding: 40px;
+    color: @muted-color;
+  }
+
+  .FriendLinksGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 20px;
+    
+    .FriendLinkCard {
+      background: var(--control-bg);
+      border-radius: 12px;
+      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      overflow: hidden;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      
+      body.dark & {
+        border-color: rgba(255, 255, 255, 0.05);
+        background: rgba(255, 255, 255, 0.03);
+      }
+      
+      &:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        border-color: var(--primary-color);
+        
+        body.dark & {
+          box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+          background: rgba(255, 255, 255, 0.05);
+        }
+      }
+
+      .FriendLinkCard-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 20px 15px;
+        text-decoration: none;
+        height: 100%;
+        color: var(--text-color);
+
+        .FriendLinkCard-logo {
+          height: 40px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-bottom: 12px;
+          
+          img {
+            max-width: 120px;
+            max-height: 40px;
+            object-fit: contain;
+            border-radius: 4px;
+            transition: transform 0.3s ease;
+          }
+        }
+
+        &:hover .FriendLinkCard-logo img {
+          transform: scale(1.05);
+        }
+
+        .FriendLinkCard-title {
+          font-size: 14px;
+          font-weight: 600;
+          color: var(--heading-color);
+          text-align: center;
+          width: 100%;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          transition: color 0.3s ease;
+        }
+
+        &:hover .FriendLinkCard-title {
+          color: var(--primary-color);
+        }
+      }
+    }
+  }
+}
